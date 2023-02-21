@@ -15,6 +15,16 @@ module.exports = {
         "primary-700": "#092946",
         secondary: "#bbd1da",
       },
+      keyframes: {
+        shake: {
+          "0%, 50%, 100%": { transform: "translateX(0px)" },
+          "25%": { transform: "translateX(-10px)" },
+          "75%": { transform: "translateX(10px)" },
+        },
+      },
+      animation: {
+        shake: "shake 200ms ease-in-out 3",
+      },
     },
   },
   plugins: [],
