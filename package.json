@@ -9,7 +9,8 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
-    "deploy": "firebase deploy --only hosting"
+    "deploy": "run-p build deploy-only",
+    "deploy-only": "firebase deploy --only hosting"
   },
   "dependencies": {
     "@heroicons/vue": "^2.0.16",
