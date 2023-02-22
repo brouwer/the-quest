@@ -3,7 +3,9 @@
     <div class="flex w-full flex-col">
       <TopBar />
     </div>
-    <div class="grow overflow-y-auto p-5">
+    <div
+      class="flex w-full grow flex-col items-center justify-start overflow-y-auto p-5"
+    >
       <RouterView />
     </div>
     <div class="flex w-full flex-col">

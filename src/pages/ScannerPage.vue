@@ -1,5 +1,5 @@
 <template>
-  <video ref="videoRef" class="h-96 w-full max-w-xs">test</video>
+  <video ref="videoRef" class="w-full max-w-md">test</video>
 </template>
 
 <script setup lang="ts">
