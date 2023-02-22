@@ -16,7 +16,7 @@
     <div class="grow"></div>
     <div class="flex flex-col text-right">
       <strong>{{ team?.points }}</strong>
-      <span>{{ $t("points") }}</span>
+      <span>{{ team?.points && $t("points") }}</span>
     </div>
     <!--points-->
   </header>
