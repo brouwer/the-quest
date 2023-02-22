@@ -15,8 +15,8 @@
     </div>
     <div class="grow"></div>
     <div class="flex flex-col text-right">
-      <strong>{{ team?.points }}</strong>
-      <span>{{ team?.points && $t("points") }}</span>
+      <strong>{{ team?.points ?? 0 }}</strong>
+      <span>{{ $t("points") }}</span>
     </div>
     <!--points-->
   </header>
