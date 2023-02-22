@@ -1,5 +1,18 @@
 <template>
-  <div class="flex flex-col p-5">
-    <RouterView />
+  <div class="flex h-full flex-col items-center">
+    <div class="flex w-full flex-col">
+      <TopBar />
+    </div>
+    <div class="grow overflow-y-auto p-5">
+      <RouterView />
+    </div>
+    <div class="flex w-full flex-col">
+      <NavBar />
+    </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import TopBar from "@/components/TopBar.vue"
+import NavBar from "@/components/NavBar.vue"
+</script>

@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router"
 import PageWrapper from "../pages/PageWrapper.vue"
 import HomePage from "../pages/HomePage.vue"
+import ScannerPage from "../pages/ScannerPage.vue"
 import LoginPage from "../pages/LoginPage.vue"
 import { getCurrentUser } from "vuefire"
 
@@ -15,6 +16,11 @@ const router = createRouter({
           path: "",
           name: "home",
           component: HomePage,
+        },
+        {
+          path: "scan",
+          name: "scanner",
+          component: ScannerPage,
         },
       ],
       meta: {
@@ -35,9 +41,6 @@ router.beforeEach(async (to) => {
     if (!currentUser) {
       return {
         path: "/login",
-        query: {
-          redirect: to.fullPath,
-        },
       }
     }
   }

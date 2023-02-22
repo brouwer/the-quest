@@ -13,7 +13,7 @@
       @keypress="limitToNumbers"
       class="mb-5 h-14 w-full max-w-xs appearance-none rounded-lg border-2 border-primary-500 bg-white text-center font-mono text-4xl uppercase tracking-widest text-primary-500 invalid:animate-shake invalid:border-2 invalid:border-red-500 invalid:bg-red-100 focus:outline-none"
     />
-    <QuestButton @click="authenticate" :disabled="disabled">
+    <QuestButton @click="authenticate" :disabled="disabled || processing">
       <template #default>{{ $t("login") }}</template>
       <template #icon>
         <svg

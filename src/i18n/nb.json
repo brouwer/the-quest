@@ -3,5 +3,7 @@
   "locale": "Norsk",
   "login": "Logg inn",
   "logout": "Logg ut",
-  "enter_code": "Skriv deres lagkode"
+  "enter_code": "Skriv deres lagkode",
+  "red": "Rød",
+  "blue": "Blå"
 }

@@ -3,5 +3,7 @@
   "locale": "English",
   "login": "Login",
   "logout": "Logout",
-  "enter_code": "Enter your team code"
+  "enter_code": "Enter your team code",
+  "red": "Red",
+  "blue": "Blue"
 }

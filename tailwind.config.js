@@ -14,6 +14,8 @@ module.exports = {
         "primary-500": "#0f4d86",
         "primary-700": "#092946",
         secondary: "#bbd1da",
+        "team-red": "#ff0000",
+        "team-blue": "#0000FF",
       },
       keyframes: {
         shake: {
