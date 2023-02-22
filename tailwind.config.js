@@ -15,7 +15,15 @@ module.exports = {
         "primary-700": "#092946",
         secondary: "#bbd1da",
         "team-red": "#ff0000",
-        "team-blue": "#0000FF",
+        "team-white": "#ffffff",
+        "team-black": "#000000",
+        "team-brown": "#6b321c",
+        "team-purple": "#800080",
+        "team-pink": "#f7a3b2",
+        "team-dark-blue": "#0000ff",
+        "team-light-blue": "#89d0e8",
+        "team-green": "#008000",
+        "team-grey": "#808080",
       },
       keyframes: {
         shake: {

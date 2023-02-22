@@ -4,6 +4,15 @@
   "login": "Login",
   "logout": "Logout",
   "enter_code": "Enter your team code",
+  "points": "points",
   "red": "Red",
-  "blue": "Blue"
+  "white": "White",
+  "black": "Black",
+  "brown": "Brown",
+  "purple": "Purple",
+  "pink": "Pink",
+  "dark-blue": "Dark Blue",
+  "light-blue": "Light Blue",
+  "green": "Green",
+  "grey": "Grey"
 }

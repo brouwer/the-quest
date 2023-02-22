@@ -4,6 +4,15 @@
   "login": "Logg inn",
   "logout": "Logg ut",
   "enter_code": "Skriv deres lagkode",
+  "points": "poeng",
   "red": "Rød",
-  "blue": "Blå"
+  "white": "Hvit",
+  "black": "Svart",
+  "brown": "Brun",
+  "purple": "Lilla",
+  "pink": "Rosa",
+  "dark-blue": "Mørke Blå",
+  "light-blue": "Lyse Blå",
+  "green": "Grønn",
+  "grey": "Grå"
 }
