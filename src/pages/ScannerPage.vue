@@ -3,22 +3,27 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from "vue"
+import { onUnmounted, ref, watch } from "vue"
 import QrScanner from "qr-scanner"
 
 const videoRef = ref<HTMLVideoElement | null>()
+const scanner = ref()
 
 watch(videoRef, (video) => {
   if (video) {
-    const scanner = new QrScanner(
+    scanner.value = new QrScanner(
       video,
       (result) => console.log("decoded qr code:", result),
       {},
     )
 
-    scanner.start().then(() => {
+    scanner.value.start().then(() => {
       console.log("started")
     })
   }
+})
+
+onUnmounted(() => {
+  scanner.value?.stop()
 })
 </script>
