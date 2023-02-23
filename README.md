@@ -5,10 +5,12 @@ This repo contains the source code for a web app for The Quest PC23. Built using
 ## Configuration
 
 Some configuration files that are needed are not commited.
-This project requires a `firebase.config.ts` file in the root of the project, with 2 exports:
+This project requires a `firebase.config.ts` file in the root of the project, with 4 exports:
 
 - `apiURL` - base URL to the API that is deployed to Firebase Functions (2nd gen), see `functions` folder
 - `firebaseConfig` - firebase configuration, can be found in the Firebase Console -> Project settings
+- `appCheckSiteKey` - a site key from ReCaptchaV3 to use in production
+- `appCheckDebug` - boolean whether to run app check in debug mode or not (localhost)
 
 ## Project Setup
 
