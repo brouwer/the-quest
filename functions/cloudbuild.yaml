@@ -3,6 +3,18 @@ steps:
     dir: "functions"
     entrypoint: npm
     args: ["install"]
+  - name: node
+    dir: "functions"
+    entrypoint: bash
+    args:
+      - '-c'
+      - 'if [[ "$_PR_NUMBER" != "" ]]; then npm run lint; fi'
+  - name: node
+    dir: "functions"
+    entrypoint: bash
+    args:
+      - '-c'
+      - 'if [[ "$_PR_NUMBER" != "" ]]; then npm run build; fi'
   - name: gcr.io/$PROJECT_ID/firebase
     entrypoint: 'bash'
     args:
