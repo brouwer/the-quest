@@ -1,0 +1,16 @@
+steps:
+  - name: node
+    dir: "functions"
+    entrypoint: npm
+    args: ["install"]
+  - name: node
+    dir: "functions"
+    entrypoint: npm
+    args: ["run", "lint"]
+  - name: node
+    dir: "functions"
+    entrypoint: npm
+    args: ["run", "build"]
+  - name: gcr.io/$PROJECT_ID/firebase
+    dir: "functions"
+    args: ["deploy", "--project=$PROJECT_ID", "--only=functions"]
