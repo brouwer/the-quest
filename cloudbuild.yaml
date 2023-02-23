@@ -11,4 +11,4 @@ steps:
     entrypoint: 'bash'
     args:
       - '-c'
-      - 'if [[ $_PR_NUMBER = "" ]]; then firebase deploy --project=$PROJECT_ID --only=hosting; fi'
+      - 'if [[ "$_PR_NUMBER" = "" ]]; then firebase deploy --project=$PROJECT_ID --only=hosting; fi'
