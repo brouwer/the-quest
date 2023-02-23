@@ -16,7 +16,7 @@ steps:
       - '-c'
       - 'if [[ "$_PR_NUMBER" != "" ]]; then npm run build; fi'
   - name: gcr.io/$PROJECT_ID/firebase
-    entrypoint: 'bash'
+    entrypoint: bash
     args:
       - '-c'
       - 'if [[ "$_PR_NUMBER" = "" ]]; then firebase deploy --project=$PROJECT_ID --only=functions; fi'
