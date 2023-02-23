@@ -27,3 +27,5 @@ coverage
 *.sln
 *.sw?
 
+# Ignore cloudbuild files
+cloudbuild.yaml

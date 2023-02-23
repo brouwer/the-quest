@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router"
 import PageWrapper from "../pages/PageWrapper.vue"
 import HomePage from "../pages/HomePage.vue"
 import ScannerPage from "../pages/ScannerPage.vue"
+import PostPage from "../pages/PostPage.vue"
 import LoginPage from "../pages/LoginPage.vue"
 import { getCurrentUser } from "vuefire"
 
@@ -22,6 +23,11 @@ const router = createRouter({
           name: "scanner",
           component: ScannerPage,
         },
+        {
+          path: "post/:id",
+          name: "post",
+          component: PostPage,
+        },
       ],
       meta: {
         requiresAuth: true,
@@ -31,6 +37,11 @@ const router = createRouter({
       path: "/login",
       name: "login",
       component: LoginPage,
+    },
+    // Redirect all unmatched routes to home
+    {
+      path: "/:pathMatch(.*)*",
+      redirect: "/",
     },
   ],
 })
