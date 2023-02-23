@@ -4,5 +4,7 @@ steps:
     entrypoint: npm
     args: ["install"]
   - name: gcr.io/$PROJECT_ID/firebase
-    dir: "functions"
-    args: ["deploy", "--project=$PROJECT_ID", "--only=functions"]
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - 'if [[ "$_PR_NUMBER" = "" ]]; then firebase deploy --project=$PROJECT_ID --only=functions; fi'
