@@ -41,6 +41,11 @@ router.beforeEach(async (to) => {
     if (!currentUser) {
       return {
         path: "/login",
+        ...(to.fullPath !== "/" && {
+          query: {
+            redirect: to.fullPath,
+          },
+        }),
       }
     }
   }
