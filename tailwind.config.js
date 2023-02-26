@@ -35,6 +35,9 @@ module.exports = {
       animation: {
         shake: "shake 200ms ease-in-out 3",
       },
+      transitionProperty: {
+        time: "width, background-color",
+      },
     },
   },
   plugins: [],

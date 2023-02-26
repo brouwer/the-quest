@@ -1,8 +1,10 @@
 <template>
-  <WrongPostView v-if="post?.color != team?.color" />
-  <template v-if="post?.color == team?.color">
-    <h1 class="text-3xl font-black">Post {{ post?.game }}</h1>
-  </template>
+  <div class="p-5">
+    <WrongPostView v-if="post?.color != team?.color" />
+    <template v-if="post?.color == team?.color">
+      <h1 class="text-3xl font-black">Post {{ post?.game }}</h1>
+    </template>
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -14,5 +14,9 @@
   "dark-blue": "Dark Blue",
   "light-blue": "Light Blue",
   "green": "Green",
-  "grey": "Grey"
+  "grey": "Grey",
+  "pleaseWait": "Please wait...",
+  "gotoStart": "Go to first post",
+  "timeBetween": "Time until next post",
+  "timeLeft": "Time left on post"
 }

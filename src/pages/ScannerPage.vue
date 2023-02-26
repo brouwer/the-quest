@@ -1,12 +1,14 @@
 <template>
-  <h1 class="h-10 text-3xl font-black">Scan a QR code</h1>
-  <h2 class="h-10 text-xl font-black text-red-700">
-    {{
-      (scanError && scanError) ||
-      (scanResult && "That's not a valid Code Breaker QR Code")
-    }}
-  </h2>
-  <video ref="videoRef" class="w-full max-w-md"></video>
+  <div class="p-5">
+    <h1 class="h-10 text-3xl font-black">Scan a QR code</h1>
+    <h2 class="h-10 text-xl font-black text-red-700">
+      {{
+        (scanError && scanError) ||
+        (scanResult && "That's not a valid Code Breaker QR Code")
+      }}
+    </h2>
+    <video ref="videoRef" class="w-full max-w-md"></video>
+  </div>
 </template>
 
 <script setup lang="ts">
