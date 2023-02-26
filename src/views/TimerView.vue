@@ -4,10 +4,12 @@
       class="h-full transition-time duration-1000 ease-linear"
       :style="{ width: `${timerWidth}%`, backgroundColor: timerColor }"
     ></div>
-    <span class="absolute left-5 top-1 h-8 text-xl font-black text-white">
+    <span class="absolute left-3 top-1 mt-px h-8 text-xl font-black text-white">
       {{ timerStatusText }}
     </span>
-    <span class="absolute right-5 top-1 h-8 text-xl font-black text-white">
+    <span
+      class="absolute right-3 top-1 mt-px h-8 text-xl font-black text-white"
+    >
       {{ timerText }}
     </span>
   </div>
@@ -36,7 +38,7 @@ const timerVisible = computed(() => {
 
 const timerWidth = computed(() => {
   let full =
-    ((game.value?.before_minutes ?? 2) - (team.value?.before_offset ?? 1)) * 60
+    ((game.value?.before_minutes ?? 1) - (team.value?.before_offset ?? 0)) * 60
   switch (gameStatus.value) {
     case GameStatus.Between:
       full = (game.value?.between_minutes ?? 1) * 60

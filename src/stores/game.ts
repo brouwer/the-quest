@@ -83,7 +83,7 @@ export const useGameStore = defineStore("game", () => {
     if (
       !game.value ||
       game.value?.start?.toDate().getTime() +
-        (team.value?.before_offset * 60000 ?? 0) >
+        ((team.value?.before_offset ?? 0) * 60000 ?? 0) >
         currentTime.value.getTime()
     )
       return GameStatus.PleaseWait
