@@ -79,7 +79,8 @@ export const useGameStore = defineStore("game", () => {
   })
 
   const gameStatus = computed(() => {
-    if ((currentGame?.value ?? 0) > game.value?.amount) return GameStatus.Over
+    if ((currentGame?.value ?? 0) > game.value?.amount || !game.value?.ongoing)
+      return GameStatus.Over
     if (
       !game.value ||
       game.value?.start?.toDate().getTime() +
