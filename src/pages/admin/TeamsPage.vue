@@ -12,7 +12,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="team in teams" :key="team.id" class="border-b bg-white">
+        <tr
+          v-for="team in teamsSorted"
+          :key="team.id"
+          class="border-b bg-white"
+        >
           <th scope="row" class="whitespace-nowrap px-6 py-4">
             {{ team.color }}
           </th>
@@ -27,10 +31,21 @@
   </div>
 </template>
 <script setup lang="ts">
+import { computed } from "vue"
 import { useCollection, useFirestore } from "vuefire"
 import { collection } from "firebase/firestore"
 
 const db = useFirestore()
 
 const teams = useCollection(collection(db, "teams"))
+
+const teamsSorted = computed(() => {
+  return [...teams.value].sort((a, b) => {
+    if (a.color < b.color) return -1
+    if (a.color > b.color) return 1
+    if (a.number < b.number) return -1
+    if (a.number > b.number) return 1
+    return 0
+  })
+})
 </script>

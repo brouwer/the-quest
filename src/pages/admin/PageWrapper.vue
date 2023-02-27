@@ -27,12 +27,6 @@
         <RouterLink
           class="mb-5 w-full rounded-lg bg-primary-300 py-3 px-5 text-white"
           exact-active-class="!bg-primary-700"
-          to="/admin/games"
-          >Games</RouterLink
-        >
-        <RouterLink
-          class="mb-5 w-full rounded-lg bg-primary-300 py-3 px-5 text-white"
-          exact-active-class="!bg-primary-700"
           to="/admin/posts"
           >Posts</RouterLink
         >

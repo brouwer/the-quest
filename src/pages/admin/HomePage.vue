@@ -2,7 +2,7 @@
   <FirestoreInput
     type="number"
     field="amount"
-    label="Number of games (posts)"
+    label="Number of posts"
     :modelValue="gameDoc?.amount"
     @update:modelValue="updateModelValue"
   />
@@ -16,14 +16,14 @@
   <FirestoreInput
     type="number"
     field="between_minutes"
-    label="Minutes between games"
+    label="Minutes between posts"
     :modelValue="gameDoc?.between_minutes"
     @update:modelValue="updateModelValue"
   />
   <FirestoreInput
     type="number"
     field="game_minutes"
-    label="Minutes for each game"
+    label="Minutes for each post"
     :modelValue="gameDoc?.game_minutes"
     @update:modelValue="updateModelValue"
   />

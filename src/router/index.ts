@@ -1,16 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router"
-import PageWrapper from "../pages/PageWrapper.vue"
-import HomePage from "../pages/HomePage.vue"
-import ScannerPage from "../pages/ScannerPage.vue"
-import PostPage from "../pages/PostPage.vue"
-import LoginPage from "../pages/LoginPage.vue"
-
-import AdminPageWrapper from "../pages/admin/PageWrapper.vue"
-import AdminHomePage from "../pages/admin/HomePage.vue"
-import AdminTeamsPage from "../pages/admin/TeamsPage.vue"
-import AdminGamesPage from "../pages/admin/GamesPage.vue"
-import AdminPostsPage from "../pages/admin/PostsPage.vue"
-import AdminLoginPage from "../pages/admin/LoginPage.vue"
 import { getCurrentUser } from "vuefire"
 
 const router = createRouter({
@@ -18,7 +6,7 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      component: PageWrapper,
+      component: () => import("../pages/PageWrapper.vue"),
       meta: {
         requiresAuth: true,
       },
@@ -26,28 +14,33 @@ const router = createRouter({
         {
           path: "",
           name: "home",
-          component: HomePage,
+          component: () => import("../pages/HomePage.vue"),
         },
         {
           path: "scan",
           name: "scanner",
-          component: ScannerPage,
+          component: () => import("../pages/ScannerPage.vue"),
         },
         {
           path: "post/:id",
           name: "post",
-          component: PostPage,
+          component: () => import("../pages/PostPage.vue"),
+        },
+        {
+          path: "score",
+          name: "score",
+          component: () => import("../pages/ScorePage.vue"),
         },
       ],
     },
     {
       path: "/login",
       name: "login",
-      component: LoginPage,
+      component: () => import("../pages/LoginPage.vue"),
     },
     {
       path: "/admin",
-      component: AdminPageWrapper,
+      component: () => import("../pages/admin/PageWrapper.vue"),
       meta: {
         requiresAdmin: true,
       },
@@ -55,29 +48,24 @@ const router = createRouter({
         {
           path: "",
           name: "admin",
-          component: AdminHomePage,
+          component: () => import("../pages/admin/HomePage.vue"),
         },
         {
           path: "teams",
           name: "admin-teams",
-          component: AdminTeamsPage,
-        },
-        {
-          path: "games",
-          name: "admin-games",
-          component: AdminGamesPage,
+          component: () => import("../pages/admin/TeamsPage.vue"),
         },
         {
           path: "posts",
           name: "admin-posts",
-          component: AdminPostsPage,
+          component: () => import("../pages/admin/PostsPage.vue"),
         },
       ],
     },
     {
       path: "/admin-login",
       name: "admin-login",
-      component: AdminLoginPage,
+      component: () => import("../pages/admin/LoginPage.vue"),
     },
     // Redirect all unmatched routes to home
     {

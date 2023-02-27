@@ -18,5 +18,7 @@
   "pleaseWait": "Please wait...",
   "gotoStart": "Go to first post",
   "timeBetween": "Time until next post",
-  "timeLeft": "Time left on post"
+  "timeLeft": "Time left on post",
+  "posts": "Posts",
+  "scores": "Scores"
 }
