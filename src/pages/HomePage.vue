@@ -1,11 +1,11 @@
 <template>
   <div class="relative w-full">
     <div class="p-5">
-      <HomeView />
+      <DebugView />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import HomeView from "@/views/HomeView.vue"
+import DebugView from "@/views/DebugView.vue"
 </script>

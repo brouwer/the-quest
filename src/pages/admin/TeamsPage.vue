@@ -5,7 +5,7 @@
         <tr>
           <th scope="col" class="px-6 py-3">Group</th>
           <th scope="col" class="px-6 py-3">Team</th>
-          <th scope="col" class="px-6 py-3">Minutes offset</th>
+          <th scope="col" class="px-6 py-3">Seconds offset</th>
           <th scope="col" class="px-6 py-3">Code</th>
           <th scope="col" class="px-6 py-3">Points</th>
           <th></th>

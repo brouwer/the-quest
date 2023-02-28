@@ -38,7 +38,7 @@ const timerVisible = computed(() => {
 
 const timerWidth = computed(() => {
   let full =
-    ((game.value?.before_minutes ?? 1) - (team.value?.before_offset ?? 0)) * 60
+    (game.value?.before_minutes ?? 1) * 60 - (team.value?.before_offset ?? 0)
   switch (gameStatus.value) {
     case GameStatus.Between:
       full = (game.value?.between_minutes ?? 1) * 60
