@@ -55,11 +55,6 @@ const router = createRouter({
           name: "admin-teams",
           component: () => import("../pages/admin/TeamsPage.vue"),
         },
-        {
-          path: "posts",
-          name: "admin-posts",
-          component: () => import("../pages/admin/PostsPage.vue"),
-        },
       ],
     },
     {

@@ -1,11 +1,8 @@
 <template>
   <div class="p-3 pb-16">
-    <h1 class="h-6 text-xl font-black">Scan a QR code</h1>
+    <h1 class="h-6 text-xl font-black">{{ $t("scanCode") }}</h1>
     <h2 class="h-8 text-lg font-black text-red-700">
-      {{
-        (scanError && scanError) ||
-        (scanResult && "That's not a valid Code Breaker QR Code")
-      }}
+      {{ (scanError && scanError) || (scanResult && $t("invalidQR")) }}
     </h2>
     <div class="h-80 overflow-hidden">
       <video ref="videoRef"></video>
@@ -38,13 +35,14 @@ watch(videoRef, (video) => {
             const route = router.resolve(url.pathname)
             if (route.name == "post") {
               router.push(url.pathname)
+            } else {
+              scanResult.value = result.data
             }
           } catch (_) {
             console.error(_)
             scanError.value = t("errorQR")
           }
         }
-        scanResult.value = result.data
       },
       {
         highlightScanRegion: true,
