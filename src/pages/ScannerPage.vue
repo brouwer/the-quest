@@ -4,7 +4,7 @@
     <h2 class="h-8 text-lg font-black text-red-700">
       {{ (scanError && scanError) || (scanResult && $t("invalidQR")) }}
     </h2>
-    <div class="h-80 overflow-hidden">
+    <div class="h-80 overflow-hidden p-8">
       <video ref="videoRef"></video>
     </div>
   </div>

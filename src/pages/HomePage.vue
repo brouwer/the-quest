@@ -5,14 +5,13 @@
     >
       <GameInactiveView v-if="gameStatus == GameStatus.Inactive" />
       <WaitView v-if="gameStatus == GameStatus.PleaseWait" />
-      <GameOverView v-if="gameStatus == GameStatus.Over" />
-      <ScanCodeView
+      <NextPostView
         v-if="
-          gameStatus == GameStatus.GotoStart ||
-          gameStatus == GameStatus.Between ||
-          gameStatus == GameStatus.Game
+          gameStatus == GameStatus.GotoStart || gameStatus == GameStatus.Between
         "
       />
+      <ScanCodeView v-if="gameStatus == GameStatus.Game" />
+      <GameOverView v-if="gameStatus == GameStatus.Over" />
       <DebugView v-if="false" />
     </div>
   </div>
@@ -26,6 +25,7 @@ import GameInactiveView from "@/views/GameInactiveView.vue"
 import WaitView from "@/views/WaitView.vue"
 import GameOverView from "@/views/GameOverView.vue"
 import ScanCodeView from "@/views/ScanCodeView.vue"
+import NextPostView from "@/views/NextPostView.vue"
 
 const gameStore = useGameStore()
 const { gameStatus } = storeToRefs(gameStore)
