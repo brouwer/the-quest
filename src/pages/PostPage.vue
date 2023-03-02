@@ -1,7 +1,9 @@
 <template>
-  <div class="p-5">
-    <!-- <WrongPostView /> -->
-    <PostView :post="post" />
+  <div class="relative flex w-full grow">
+    <div class="flex grow flex-col items-center p-3 pb-16">
+      <!-- <WrongPostView /> -->
+      <PostView v-if="post" :post="post" />
+    </div>
   </div>
 </template>
 

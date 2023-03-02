@@ -1,22 +1,26 @@
 <template>
-  <div class="p-5">
-    <h1 class="h-10 text-3xl font-black">Scan a QR code</h1>
-    <h2 class="h-10 text-xl font-black text-red-700">
+  <div class="p-3 pb-16">
+    <h1 class="h-6 text-xl font-black">Scan a QR code</h1>
+    <h2 class="h-8 text-lg font-black text-red-700">
       {{
         (scanError && scanError) ||
         (scanResult && "That's not a valid Code Breaker QR Code")
       }}
     </h2>
-    <video ref="videoRef" class="w-full max-w-md"></video>
+    <div class="h-80 overflow-hidden">
+      <video ref="videoRef"></video>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { onUnmounted, ref, watch } from "vue"
 import { useRouter } from "vue-router"
+import { useI18n } from "vue-i18n"
 import QrScanner from "qr-scanner"
 
 const router = useRouter()
+const { t } = useI18n()
 
 const videoRef = ref<HTMLVideoElement | null>()
 const scanner = ref()
@@ -37,8 +41,7 @@ watch(videoRef, (video) => {
             }
           } catch (_) {
             console.error(_)
-            scanError.value =
-              "Oops, something went wrong, contact the organizers"
+            scanError.value = t("errorQR")
           }
         }
         scanResult.value = result.data

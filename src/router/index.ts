@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router"
-import { getCurrentUser } from "vuefire"
+import { getCurrentUser, useFirebaseAuth } from "vuefire"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -67,6 +67,11 @@ const router = createRouter({
       name: "admin-login",
       component: () => import("../pages/admin/LoginPage.vue"),
     },
+    {
+      path: "/logout",
+      name: "logout",
+      component: () => null,
+    },
     // Redirect all unmatched routes to home
     {
       path: "/:pathMatch(.*)*",
@@ -76,6 +81,13 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to) => {
+  if (to.path === "/logout") {
+    const auth = useFirebaseAuth()
+    await auth?.signOut()
+    return {
+      path: "/login",
+    }
+  }
   if (to.meta.requiresAuth) {
     const currentUser = await getCurrentUser()
     const isTeam = currentUser?.email == null

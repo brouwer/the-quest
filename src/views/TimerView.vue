@@ -31,6 +31,7 @@ const { game, gameStatus, elapsedCurrentCycle } = storeToRefs(gameStore)
 
 const timerVisible = computed(() => {
   return (
+    gameStatus.value != GameStatus.Inactive &&
     gameStatus.value != GameStatus.Over &&
     gameStatus.value != GameStatus.PleaseWait
   )

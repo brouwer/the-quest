@@ -2,6 +2,7 @@ import { createI18n } from "vue-i18n"
 
 import en from "./en.json"
 import nb from "./nb.json"
+import da from "./da.json"
 import de from "./de.json"
 import nl from "./nl.json"
 import fr from "./fr.json"
@@ -14,7 +15,7 @@ import ro from "./ro.json"
 
 type MessageSchema = typeof en
 
-const messages = { en, nb, de, nl, fr, fi, it, pt, tr, es, ro }
+const messages = { en, nb, da, de, nl, fr, fi, it, pt, tr, es, ro }
 
 export const i18n = createI18n<[MessageSchema], "en">({
   locale:

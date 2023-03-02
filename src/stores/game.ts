@@ -56,6 +56,18 @@ export const useGameStore = defineStore("game", () => {
     return Math.floor((elapsed.value ?? 1) / (cycleTime.value ?? 1)) + 1
   })
 
+  const currentGameNormalized = computed(() => {
+    if (currentGame.value > game.value?.amount) return game.value?.amount
+    if (currentGame.value < 1) return 1
+    return currentGame.value
+  })
+
+  const nextGameNormalized = computed(() => {
+    const next = currentGameNormalized.value + 1
+    if (next > game.value?.amount) return -1
+    return next
+  })
+
   const elapsedCurrentCycle = computed(() => {
     // always returns a positive countdown (Abs)
     // if we have a negative elapsed, it means the game hasn't started yet, and the cycle time is the time until the game starts
@@ -79,8 +91,8 @@ export const useGameStore = defineStore("game", () => {
   })
 
   const gameStatus = computed(() => {
-    if ((currentGame?.value ?? 0) > game.value?.amount || !game.value?.ongoing)
-      return GameStatus.Over
+    if (!game.value?.ongoing) return GameStatus.Inactive
+    if ((currentGame?.value ?? 0) > game.value?.amount) return GameStatus.Over
     if (
       !game.value ||
       game.value?.start?.toDate().getTime() +
@@ -115,12 +127,15 @@ export const useGameStore = defineStore("game", () => {
     elapsed,
     cycleTime,
     currentGame,
+    currentGameNormalized,
+    nextGameNormalized,
     gameStatus,
     elapsedCurrentCycle,
   }
 })
 
 export enum GameStatus {
+  Inactive,
   PleaseWait,
   GotoStart,
   Game,

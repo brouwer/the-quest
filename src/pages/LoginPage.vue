@@ -40,7 +40,7 @@
 import { onMounted, ref, watchEffect } from "vue"
 import { useRoute, useRouter } from "vue-router"
 import { getCurrentUser, useFirebaseAuth } from "vuefire"
-import { connectAuthEmulator, signInWithCustomToken } from "firebase/auth"
+import { signInWithCustomToken } from "firebase/auth"
 import axios from "axios"
 import { apiURL } from "@config/firebase.config"
 import LocaleChanger from "@/components/LocaleChanger.vue"

@@ -1,6 +1,6 @@
 <template>
-  <div class="relative w-full">
-    <div class="p-5">
+  <div class="relative h-full w-full">
+    <div class="p-3 pb-16">
       <DebugView />
     </div>
   </div>
