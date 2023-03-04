@@ -9,6 +9,7 @@
         v-if="
           gameStatus == GameStatus.GotoStart || gameStatus == GameStatus.Between
         "
+        :extra="false"
       />
       <ScanCodeView v-if="gameStatus == GameStatus.Game" />
       <GameOverView v-if="gameStatus == GameStatus.Over" />

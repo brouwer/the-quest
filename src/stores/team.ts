@@ -15,5 +15,14 @@ export const useTeamStore = defineStore("team", () => {
     reset: true,
   })
 
-  return { team }
+  const nextPost = (nextGame: number) => {
+    if (team.value) {
+      const nextIndex = nextGame - 1
+      const nextPost = team.value.posts?.[nextIndex]
+      return nextPost
+    }
+    return -1
+  }
+
+  return { team, nextPost }
 })

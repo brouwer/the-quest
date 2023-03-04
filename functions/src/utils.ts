@@ -22,7 +22,8 @@ export const gameSetup = (
   minBetween: number,
   minGame: number,
   totalGames: number,
-  tryingGame: number,
+  tryingPost: number,
+  teamPosts: number[],
 ) => {
   const realStart = realStartTime(startTime, minBefore, minBetween)
   const flatCurrent = Math.ceil(currentTime.getTime() / 1000) * 1000
@@ -45,6 +46,8 @@ export const gameSetup = (
   let nextGame = currentGameNormalized + 1
   if (nextGame > totalGames) nextGame = -1
 
+  const teamPost = teamPosts[currentGameNormalized - 1]
+
   const gameStatus = calcGameStatus(
     ongoing,
     currentGame,
@@ -59,15 +62,14 @@ export const gameSetup = (
   )
 
   const isSubmittable = submittable(
-    tryingGame,
-    currentGameNormalized,
+    tryingPost,
+    teamPost,
     gameStatus,
     minBetween,
     msElapsedCurrentCycle,
   )
 
   return {
-    currentGameNormalized,
     gameStatus,
     msElapsedCurrentCycle,
     isSubmittable,
@@ -153,22 +155,22 @@ export const calcGameStatus = (
 }
 
 export const submittable = (
-  tryingGame: number,
-  currentGame: number,
+  tryingPost: number,
+  currentPost: number,
   gameStatus: GameStatus,
   minBetween: number,
   msElapsedCurrentCycle: number,
 ): boolean => {
-  if (tryingGame == currentGame && gameStatus == GameStatus.Game) {
+  if (tryingPost == currentPost && gameStatus == GameStatus.Game) {
     return true
   }
 
   if (
     gameStatus == GameStatus.Between &&
-    tryingGame == currentGame - 1 &&
+    tryingPost == currentPost - 1 &&
     minBetween * 60000 - msElapsedCurrentCycle < 30000
   ) {
-    // if game is between and we're trying to submit the previous game, and the previous game is less than 30 seconds old
+    // if game is between and we're trying to submit the previous post, and the previous post is less than 30 seconds old
     // we allow the submission
     return true
   }

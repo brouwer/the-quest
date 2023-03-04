@@ -63,6 +63,7 @@ app.post("/unlock", async (req, res) => {
     const teamSecBefore = (teamData?.before_offset ?? 0) as number
     let penalty = (teamData?.penalty ?? 0) as number
     const points = (teamData?.points ?? 0) as number
+    const posts = (teamData?.posts ?? []) as number[]
     const codeData = (
       await db.collection("codes").doc(post.toString()).get()
     ).data()
@@ -77,6 +78,7 @@ app.post("/unlock", async (req, res) => {
       gameMinGame,
       gameTotal,
       post,
+      posts,
     )
 
     if (!gameSetupData.isSubmittable) {
