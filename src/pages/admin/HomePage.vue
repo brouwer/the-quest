@@ -43,12 +43,17 @@
     "
     @update:modelValue="updateDatetime"
   />
+
+  <QuestButton class="w-40 !text-sm" @click="setStartNow"
+    >Start Now</QuestButton
+  >
 </template>
 
 <script setup lang="ts">
 import { useDocument, useFirestore } from "vuefire"
-import { doc, FieldValue, updateDoc } from "firebase/firestore"
+import { doc, FieldValue, updateDoc, serverTimestamp } from "firebase/firestore"
 import FirestoreInput from "@/components/FirestoreInput.vue"
+import QuestButton from "@/components/QuestButton.vue"
 
 const db = useFirestore()
 
@@ -73,4 +78,10 @@ const dateForDateTimeInputValue = (date: Date) =>
   new Date(date.getTime() + new Date().getTimezoneOffset() * -60 * 1000)
     .toISOString()
     .slice(0, 19)
+
+const setStartNow = () => {
+  updateDoc(docRef, {
+    start: serverTimestamp(),
+  })
+}
 </script>

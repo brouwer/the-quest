@@ -31,6 +31,11 @@ const router = createRouter({
           name: "score",
           component: () => import("../pages/ScorePage.vue"),
         },
+        {
+          path: "bonus",
+          name: "bonus",
+          component: () => import("../pages/BonusPage.vue"),
+        },
       ],
     },
     {

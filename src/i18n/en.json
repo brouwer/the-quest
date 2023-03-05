@@ -5,6 +5,7 @@
   "logout": "Logout",
   "enter_code": "Enter your team code",
   "points": "points",
+  "penalty_points": "Penalty points",
   "red": "Red",
   "white": "White",
   "black": "Black",
@@ -75,5 +76,15 @@
   "post_7_location": "Front plaza",
   "post_8_location": "Service building/Festival plaza",
   "post_9_location": "Plenary hall",
-  "post_10_location": "Between building 12 and 18"
+  "post_10_location": "Between building 12 and 18",
+  "bonus_1": "Bonus 1 Question Something?",
+  "bonus_1_option_1": "Option 1",
+  "bonus_1_option_2": "Option 2",
+  "bonus_1_option_3": "Option 3",
+  "bonus_1_option_4": "Option 4",
+  "bonus_2": "Bonus 2 Question Something?",
+  "bonus_2_option_1": "Option 1",
+  "bonus_2_option_2": "Option 2",
+  "bonus_2_option_3": "Option 3",
+  "bonus_2_option_4": "Option 4"
 }

@@ -130,6 +130,57 @@ app.post("/unlock", async (req, res) => {
   }
 })
 
+app.post("/bonus-unlock", async (req, res) => {
+  const token = req.headers.authorization?.split(" ")[1]
+  if (!token) {
+    res.status(401).send({ error: "Unauthorized" })
+    return
+  }
+
+  const { question, answer }: { question: number; answer: number } = req.body
+
+  try {
+    const decodedToken = await admin.auth().verifyIdToken(token)
+    const teamData = (
+      await db.collection("teams").doc(decodedToken.uid).get()
+    ).data()
+    const teamBonusFinished = (teamData?.bonus ?? []) as number[]
+    if (teamBonusFinished.includes(question)) {
+      res.status(200).send({
+        pointsAwarded: 100,
+      })
+      return
+    } else {
+      // check if the answer is correct
+      const bonusData = (
+        await db.collection("bonus").doc(question.toString()).get()
+      ).data()
+      if (bonusData?.solution !== answer) {
+        res.status(403).send({ error: "Wrong answer" })
+        return
+      } else {
+        await db
+          .collection("teams")
+          .doc(decodedToken.uid)
+          .update({
+            points: (teamData?.points ?? 0) + 100,
+            bonus: [...teamBonusFinished, question],
+            bonus_points: (teamData?.bonus_points ?? 0) + 100,
+          })
+        res.status(200).send({
+          pointsAwarded: 100,
+        })
+        return
+      }
+    }
+  } catch (_) {
+    // we just assume that the token is invalid
+    console.log(_)
+    res.status(401).send({ error: "Unauthorized" })
+    return
+  }
+})
+
 // Expose Express API as a single Cloud Function:
 exports.api = onRequest(
   { timeoutSeconds: 60, region: ["europe-north1"], cors: true },
