@@ -62,7 +62,7 @@ app.post("/unlock", async (req, res) => {
     ).data()
     const teamSecBefore = (teamData?.before_offset ?? 0) as number
     let penalty = (teamData?.penalty ?? 0) as number
-    const points = (teamData?.points ?? 0) as number
+    let points = (teamData?.points ?? 0) as number
     const posts = (teamData?.posts ?? []) as number[]
     const codeData = (
       await db.collection("codes").doc(post.toString()).get()
@@ -88,8 +88,10 @@ app.post("/unlock", async (req, res) => {
 
     if (codeData?.code !== code) {
       penalty += 100
+      points -= 100
       await db.collection("teams").doc(decodedToken.uid).update({
         penalty,
+        points,
       })
       // todo award penalty points
       res.status(403).send({ error: "Wrong code" })
@@ -108,12 +110,10 @@ app.post("/unlock", async (req, res) => {
       // submittable but a bit late, so fix to 100 points
       pointsAwarded = 100
     }
-    pointsAwarded -= penalty
     await db
       .collection("teams")
       .doc(decodedToken.uid)
       .update({
-        penalty: 0,
         points: points + pointsAwarded,
         [`post_${post}_points`]: pointsAwarded,
       })

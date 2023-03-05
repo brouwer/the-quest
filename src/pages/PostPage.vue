@@ -8,7 +8,9 @@
       />
       <WaitView
         v-if="
-          gameStatus != GameStatus.Game && post?.post == postNumber?.toString()
+          (gameStatus != GameStatus.Game &&
+            post?.post == postNumber?.toString()) ||
+          gameStatus == GameStatus.PleaseWait
         "
       />
       <PostView
@@ -46,7 +48,7 @@
 
 <script setup lang="ts">
 import { computed, ref, watchEffect } from "vue"
-import { useRoute } from "vue-router"
+import { useRoute, useRouter } from "vue-router"
 import { useDocument, useFirestore } from "vuefire"
 import { storeToRefs } from "pinia"
 import { doc } from "firebase/firestore"
@@ -60,6 +62,7 @@ import NextPostView from "@/views/NextPostView.vue"
 import WrongPostView from "@/views/WrongPostView.vue"
 
 const { id } = useRoute().params
+const router = useRouter()
 
 const showNext = ref(false)
 
@@ -67,7 +70,7 @@ const db = useFirestore()
 const gameStore = useGameStore()
 const teamStore = useTeamStore()
 
-const { gameStatus } = storeToRefs(gameStore)
+const { game, gameStatus, elapsedCurrentCycle } = storeToRefs(gameStore)
 const { team } = storeToRefs(teamStore)
 
 const docRef = doc(db, "posts", id as string)
@@ -91,6 +94,22 @@ const goNext = () => {
 watchEffect(() => {
   if (gameStatus.value != GameStatus.Game) {
     showNext.value = false
+  }
+
+  if (gameStatus.value == GameStatus.Over) {
+    router.push("/")
+  }
+
+  if (
+    elapsedCurrentCycle.value >
+    (game?.value?.between_minutes * 60 ?? 0) - 10
+  ) {
+    if (
+      gameStatus.value == GameStatus.Between &&
+      postNumber.value?.toString() != post?.value?.post
+    ) {
+      router.push("/")
+    }
   }
 })
 </script>

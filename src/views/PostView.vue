@@ -7,6 +7,13 @@
   </p>
   <div class="relative mt-2 w-full max-w-md">
     <div
+      v-if="showWrongCode"
+      class="absolute z-50 flex h-full w-full animate-pulse flex-col items-center justify-center rounded-2xl bg-red-500"
+    >
+      <span class="font-mono text-xl text-white">{{ $t("denied") }}</span>
+      <span class="font-mono text-xl text-white">-100 {{ $t("points") }}</span>
+    </div>
+    <div
       class="top-0 left-0 h-24 w-full rounded-2xl border-2 border-black bg-white"
     >
       <!--background-->
@@ -72,6 +79,8 @@ const props = defineProps<{
   post: DocumentData
 }>()
 
+const showWrongCode = ref(false)
+
 const user = useCurrentUser()
 
 const codeInput = ref()
@@ -116,14 +125,18 @@ const unlock = async () => {
         },
       },
     )
-    .then(({ data }) => {
+    .then(() => {
       processing.value = false
-      console.log(data)
-      // todo logic
     })
-    .catch(() => {
+    .catch(({ response }) => {
       processing.value = false
-      codeInput.value.setCustomValidity("Team code not valid")
+      if (response.status == 403) {
+        showWrongCode.value = true
+        code.value = ""
+        setTimeout(() => {
+          showWrongCode.value = false
+        }, 4000)
+      }
     })
 }
 </script>

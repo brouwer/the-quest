@@ -1,7 +1,7 @@
 <template>
   <div class="relative overflow-x-auto">
     <div v-if="false" class="flex flex-row justify-end">
-      <QuestButton @click="resetPoints" class="mb-5 w-40 !text-sm normal-case"
+      <QuestButton @click="resetPoints" class="mb-5 !w-40 !text-sm normal-case"
         >Reset Points</QuestButton
       >
     </div>
