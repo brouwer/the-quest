@@ -44,7 +44,7 @@
     @update:modelValue="updateDatetime"
   />
 
-  <QuestButton class="w-40 !text-sm" @click="setStartNow"
+  <QuestButton class="ml-80 !w-40 !text-sm" @click="setStartNow"
     >Start Now</QuestButton
   >
 </template>

@@ -1,11 +1,11 @@
 <template>
-  <div class="p-3 pb-16">
+  <div class="flex h-full flex-col p-3 pb-16">
     <h1 class="h-6 text-xl font-black">{{ $t("scanCode") }}</h1>
     <h2 class="h-8 text-lg font-black text-red-700">
       {{ (scanError && scanError) || (scanResult && $t("invalidQR")) }}
     </h2>
-    <div class="h-80 overflow-hidden px-8">
-      <video ref="videoRef"></video>
+    <div class="mt-2 h-full shrink">
+      <video class="!h-full" ref="videoRef"></video>
     </div>
   </div>
 </template>

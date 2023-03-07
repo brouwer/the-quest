@@ -2,7 +2,7 @@
   <div class="relative overflow-x-auto">
     <div v-if="true" class="flex flex-row justify-end">
       <QuestButton @click="resetPoints" class="mb-5 !w-40 !text-sm normal-case"
-        >Reset Points</QuestButton
+        >Reset</QuestButton
       >
     </div>
     <table class="w-full text-left text-sm">
@@ -12,6 +12,8 @@
           <th scope="col" class="px-6 py-3">Seconds offset</th>
           <th scope="col" class="px-6 py-3">Code</th>
           <th scope="col" class="px-6 py-3">Points</th>
+          <th scope="col" class="px-6 py-3">Penalty</th>
+          <th scope="col" class="px-6 py-3">Bonus</th>
           <th></th>
         </tr>
       </thead>
@@ -27,6 +29,8 @@
           <td class="px-6 py-4">{{ team.before_offset }}</td>
           <td class="px-6 py-4">{{ team.code }}</td>
           <td class="px-6 py-4">{{ team.points }}</td>
+          <td class="px-6 py-4">{{ team.penalty }}</td>
+          <td class="px-6 py-4">{{ team.bonus_points }}</td>
           <td></td>
         </tr>
       </tbody>
@@ -59,6 +63,8 @@ const resetPoints = async () => {
     await updateDoc(docRef, {
       points: 0,
       penalty: 0,
+      bonus_points: 0,
+      bonus: [],
       post_1_points: deleteField(),
       post_2_points: deleteField(),
       post_3_points: deleteField(),
