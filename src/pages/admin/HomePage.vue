@@ -9,7 +9,7 @@
   <FirestoreInput
     type="number"
     field="before_minutes"
-    label="Minutes for teams to get first post before game start"
+    label="Minutes for teams to get to first post before game start"
     :modelValue="gameDoc?.before_minutes"
     @update:modelValue="updateModelValue"
   />
