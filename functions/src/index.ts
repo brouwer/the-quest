@@ -67,6 +67,7 @@ app.post("/unlock", async (req, res) => {
     const codeData = (
       await db.collection("codes").doc(post.toString()).get()
     ).data()
+    const codes: string[] = codeData?.code.split(",") ?? []
 
     const gameSetupData = gameSetup(
       gameOngoing,
@@ -86,7 +87,7 @@ app.post("/unlock", async (req, res) => {
       return
     }
 
-    if (codeData?.code !== code) {
+    if (!codes.includes(code.toString())) {
       penalty += 100
       points -= 100
       await db.collection("teams").doc(decodedToken.uid).update({
