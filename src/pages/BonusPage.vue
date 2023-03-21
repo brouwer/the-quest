@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex h-full w-full flex-col p-3">
+  <div class="relative flex w-full grow">
     <div
       v-if="showCorrectAnswer"
       class="absolute top-1/4 left-1/4 flex aspect-square w-1/2 items-center justify-center rounded-3xl bg-lime-700 p-5"
@@ -18,8 +18,11 @@
     >
       <EllipsisHorizontalIcon class="animate-pulse text-white" />
     </div>
-    <h1 class="mb-3 text-2xl font-black">{{ $t("bonus") }}</h1>
-    <div v-if="bonusQuestion > 0" class="flex h-full w-full flex-col">
+    <div
+      v-if="bonusQuestion > 0"
+      class="flex grow flex-col items-center justify-center p-3 pb-16"
+    >
+      <h1 class="mb-3 text-2xl font-black">{{ $t("bonus") }}</h1>
       <p class="mb-2 text-base font-bold normal-case">
         {{ $t(`bonus_${bonusQuestion}`) }}
       </p>

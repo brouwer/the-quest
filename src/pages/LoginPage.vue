@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-full w-full flex-col items-center p-5">
-    <h1 class="mt-20 text-5xl font-black">Code Breaker</h1>
+    <h1 class="mt-20 text-center text-5xl font-black">Code Breaker</h1>
     <div class="flex w-full grow flex-col items-center justify-center">
       <h3 class="mb-5 text-2xl font-bold">{{ $t("language") }}</h3>
       <LocaleChanger :button="false" />
