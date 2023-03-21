@@ -39,6 +39,11 @@ const router = createRouter({
       ],
     },
     {
+      path: "/post-lead/:id",
+      name: "post-lead",
+      component: () => import("../pages/PostLeadPage.vue"),
+    },
+    {
       path: "/login",
       name: "login",
       component: () => import("../pages/LoginPage.vue"),
