@@ -41,6 +41,9 @@ const router = createRouter({
     {
       path: "/post-lead/:id",
       name: "post-lead",
+      meta: {
+        requiresAuth: true,
+      },
       component: () => import("../pages/PostLeadPage.vue"),
     },
     {
