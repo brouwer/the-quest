@@ -47,6 +47,14 @@ const router = createRouter({
       component: () => import("../pages/PostLeadPage.vue"),
     },
     {
+      path: "/screen",
+      name: "screen",
+      meta: {
+        requiresAuth: true,
+      },
+      component: () => import("../pages/ScreenPage.vue"),
+    },
+    {
       path: "/login",
       name: "login",
       component: () => import("../pages/LoginPage.vue"),

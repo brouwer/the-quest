@@ -4,8 +4,11 @@ service cloud.firestore {
     function isAdmin() {
       return request.auth != null && "admin" in request.auth.token && request.auth.token.admin == true
     }
+    function isPost() {
+      return request.auth != null && request.auth.uid == "POSTANSVARLIG"
+    }
   	match /config/{uid} {
-      allow read: if true
+      allow read: if request.auth != null
       allow write: if isAdmin()
     }
     match /posts/{id} {
@@ -13,7 +16,7 @@ service cloud.firestore {
       allow write: if isAdmin()
     }
     match /teams/{uid} {
-      allow read: if request.auth.uid == uid || isAdmin()
+      allow read: if request.auth.uid == uid || isAdmin() || isPost()
       allow write: if isAdmin()
     }
   }
