@@ -27,30 +27,30 @@
         {{ $t(`bonus_${bonusQuestion}`) }}
       </p>
       <button
-        :disabled="processing"
+        :disabled="disabled"
         @click="unlock(1)"
-        class="mb-2 w-full rounded-lg border-4 border-primary-500 p-2 text-base normal-case active:bg-primary-300 active:text-white"
+        class="mb-2 w-full rounded-lg border-4 border-primary-500 p-2 text-base normal-case active:bg-primary-300 active:text-white disabled:bg-gray-300 disabled:text-black"
       >
         {{ $t(`bonus_${bonusQuestion}_option_1`) }}
       </button>
       <button
-        :disabled="processing"
+        :disabled="disabled"
         @click="unlock(2)"
-        class="mb-2 w-full rounded-lg border-4 border-primary-500 p-2 text-base normal-case active:bg-primary-300 active:text-white"
+        class="mb-2 w-full rounded-lg border-4 border-primary-500 p-2 text-base normal-case active:bg-primary-300 active:text-white disabled:bg-gray-300 disabled:text-black"
       >
         {{ $t(`bonus_${bonusQuestion}_option_2`) }}
       </button>
       <button
-        :disabled="processing"
+        :disabled="disabled"
         @click="unlock(3)"
-        class="mb-2 w-full rounded-lg border-4 border-primary-500 p-2 text-base normal-case active:bg-primary-300 active:text-white"
+        class="mb-2 w-full rounded-lg border-4 border-primary-500 p-2 text-base normal-case active:bg-primary-300 active:text-white disabled:bg-gray-300 disabled:text-black"
       >
         {{ $t(`bonus_${bonusQuestion}_option_3`) }}
       </button>
       <button
-        :disabled="processing"
+        :disabled="disabled"
         @click="unlock(3)"
-        class="mb-2 w-full rounded-lg border-4 border-primary-500 p-2 text-base normal-case active:bg-primary-300 active:text-white"
+        class="mb-2 w-full rounded-lg border-4 border-primary-500 p-2 text-base normal-case active:bg-primary-300 active:text-white disabled:bg-gray-300 disabled:text-black"
       >
         {{ $t(`bonus_${bonusQuestion}_option_4`) }}
       </button>
@@ -88,6 +88,8 @@ const bonusQuestion = ref(0)
 const showCorrectAnswer = ref(false)
 const showWrongAnswer = ref(false)
 const user = useCurrentUser()
+const processing = ref(false)
+const disabled = ref(false)
 
 const randomBonus = (avoid?: number) => {
   if (team.value) {
@@ -125,9 +127,9 @@ watchEffect(() => {
   }
 })
 
-const processing = ref(false)
 const unlock = async (answer: number) => {
   processing.value = true
+  disabled.value = true
   axios
     .post(
       `${apiURL}/bonus-unlock`,
@@ -147,6 +149,7 @@ const unlock = async (answer: number) => {
         showCorrectAnswer.value = true
         setTimeout(() => {
           showCorrectAnswer.value = false
+          disabled.value = false
           randomBonus(bonusQuestion.value)
         }, 3000)
       }
@@ -157,6 +160,7 @@ const unlock = async (answer: number) => {
         showWrongAnswer.value = true
         setTimeout(() => {
           showWrongAnswer.value = false
+          disabled.value = false
           randomBonus(bonusQuestion.value)
         }, 3000)
       }
