@@ -17,6 +17,7 @@
   "grey": "Gris",
   "inactiveGame": "Ningún juego activo",
   "pleaseWait": "Espera porfavor",
+  "pleaseWaitPost": "Debe esperar hasta que la estación esté abierta antes de ingresar el código.",
   "scanCode": "Escanea el código QR",
   "gameOver": "Ve a la sala de deportes para ver la última estación de esta tarde",
   "gotoStart": "Ve a la primera estación",

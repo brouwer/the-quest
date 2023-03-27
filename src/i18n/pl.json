@@ -17,6 +17,7 @@
   "grey": "Szary",
   "inactiveGame": "Brak aktywnych gier",
   "pleaseWait": "Proszę czekać",
+  "pleaseWaitPost": "Musisz poczekać, aż stanowisko będzie otwarte, zanim wprowadzisz kod.",
   "scanCode": "Zeskanuj kod QR",
   "gameOver": "Idź do multihali żeby zobaczyć ostatni ostatni post",
   "gotoStart": "Przejdź do pierwszego postu",

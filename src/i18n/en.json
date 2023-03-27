@@ -17,6 +17,7 @@
   "grey": "Grey",
   "inactiveGame": "No active game",
   "pleaseWait": "Please wait...",
+  "pleaseWaitPost": "You must wait until the post is open before entering the code.",
   "scanCode": "Scan a QR code",
   "gameOver": "Go to the Multi hall to see the last post of the evening.",
   "gotoStart": "Go to first post",

@@ -17,6 +17,7 @@
   "grey": "Cinza",
   "inactiveGame": "Nenhum jogador ativo",
   "pleaseWait": "Por favor espere",
+  "pleaseWaitPost": "Você deve esperar até que o posto esteja aberto antes de inserir o código.",
   "scanCode": "Escaneie um QRcode",
   "gameOver": "Vá ao salão de esportes para ver o último post da noite.",
   "gotoStart": "Vá ao primeiro posto",

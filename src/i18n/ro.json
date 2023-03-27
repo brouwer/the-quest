@@ -17,6 +17,7 @@
   "grey": "Gri",
   "inactiveGame": "Jocul nu este activ",
   "pleaseWait": "Așteaptă, te rog",
+  "pleaseWaitPost": "Trebuie să aștepți până când postul este deschis înainte de a introduce codul.",
   "scanCode": "Scaneaza codul QR",
   "gameOver": "Mergi la sala polivalentă pentru a vedea ultimul post al serii.",
   "gotoStart": "Mergi la primul post",

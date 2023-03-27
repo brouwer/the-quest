@@ -17,6 +17,7 @@
   "grey": "Harmaa",
   "inactiveGame": "Ei aktiivia peliä",
   "pleaseWait": "Odota",
+  "pleaseWaitPost": "Sinun täytyy odottaa, kunnes asema on auki, ennen kuin syötät koodin.",
   "scanCode": "Lue QR-koodi",
   "gameOver": "Mene Multihalliin nähdäksesi illan viimeisen rastin",
   "gotoStart": "Mene ensimmäiselle rastille",

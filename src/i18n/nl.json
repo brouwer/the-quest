@@ -17,6 +17,7 @@
   "grey": "Grijs",
   "inactiveGame": "Geen actief spel",
   "pleaseWait": "Even wachten",
+  "pleaseWaitPost": "Je moet wachten tot de post open is voordat je de code kunt invoeren.",
   "scanCode": "Scan een QR code",
   "gameOver": "Ga naar de multihal om de laatste post van de avond te zien",
   "gotoStart": "Ga naar volgende post",

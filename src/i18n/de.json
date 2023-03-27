@@ -17,6 +17,7 @@
   "grey": "Grau",
   "inactiveGame": "Kein aktives Spiel",
   "pleaseWait": "Bitte warten",
+  "pleaseWaitPost": "Sie müssen warten, bis der Posten offen ist, bevor Sie den Code eingeben.",
   "scanCode": "QR Code scannen",
   "gameOver": "Geht zur Multihalle um den letzten Stand des Abends zu machen",
   "gotoStart": "Geht zum 1. Stand",

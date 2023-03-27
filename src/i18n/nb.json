@@ -17,6 +17,7 @@
   "grey": "Grå",
   "inactiveGame": "Ingen aktiv spill",
   "pleaseWait": "Vennligst vent",
+  "pleaseWaitPost": "Du må vente til posten er åpen før du skriver inn koden.",
   "scanCode": "Scan en QR code",
   "gameOver": "Gå til multihallen for å se kveldens siste post.",
   "gotoStart": "Gå til første post",
