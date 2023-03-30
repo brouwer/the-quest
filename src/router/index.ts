@@ -55,6 +55,14 @@ const router = createRouter({
       component: () => import("../pages/ScreenPage.vue"),
     },
     {
+      path: "/screen-start",
+      name: "screen-start",
+      meta: {
+        requiresAuth: true,
+      },
+      component: () => import("../pages/ScreenStartPage.vue"),
+    },
+    {
       path: "/login",
       name: "login",
       component: () => import("../pages/LoginPage.vue"),
