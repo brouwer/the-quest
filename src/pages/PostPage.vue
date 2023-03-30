@@ -6,7 +6,7 @@
           gameStatus == GameStatus.Game && post?.post != postNumber?.toString()
         "
       />
-      <WaitView
+      <WaitPostView
         v-if="
           (gameStatus != GameStatus.Game &&
             post?.post == postNumber?.toString()) ||
@@ -56,7 +56,7 @@ import { GameStatus, useGameStore } from "@/stores/game"
 import { useTeamStore } from "@/stores/team"
 
 import PostView from "@/views/PostView.vue"
-import WaitView from "@/views/WaitView.vue"
+import WaitPostView from "@/views/WaitPostView.vue"
 import PointsView from "@/views/PointsView.vue"
 import NextPostView from "@/views/NextPostView.vue"
 import WrongPostView from "@/views/WrongPostView.vue"
