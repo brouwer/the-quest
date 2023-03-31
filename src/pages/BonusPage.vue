@@ -4,19 +4,19 @@
       v-if="showCorrectAnswer"
       class="absolute top-1/4 left-1/4 flex aspect-square w-1/2 items-center justify-center rounded-3xl bg-lime-700 p-5"
     >
-      <CheckIcon class="text-white" />
+      <CheckIcon class="!w-3/4 !text-white" />
     </div>
     <div
       v-if="showWrongAnswer"
       class="absolute top-1/4 left-1/4 flex aspect-square w-1/2 items-center justify-center rounded-3xl bg-red-700 p-5"
     >
-      <XMarkIcon class="text-white" />
+      <XMarkIcon class="!w-3/4 !text-white" />
     </div>
     <div
       v-if="processing"
       class="absolute top-1/4 left-1/4 flex aspect-square w-1/2 items-center justify-center rounded-3xl bg-sky-700 p-5"
     >
-      <EllipsisHorizontalIcon class="animate-pulse text-white" />
+      <EllipsisHorizontalIcon class="!w-3/4 !animate-pulse !text-white" />
     </div>
     <div
       v-if="bonusQuestion > 0"
@@ -119,7 +119,7 @@ const randomBonus = (avoid?: number) => {
 
 watchEffect(() => {
   if (game.value && gameStatus.value != GameStatus.Game) {
-    router.push("/")
+    //router.push("/")
   }
 
   if (team.value && game.value && bonusQuestion.value == 0) {

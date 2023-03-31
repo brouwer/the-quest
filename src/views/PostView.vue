@@ -1,8 +1,8 @@
 <template>
-  <h1 class="mb-2 text-xl font-black">
+  <h1 class="mb-2 text-4xl font-black">
     {{ $t(`post_${post?.post}`) }}
   </h1>
-  <p class="grow whitespace-pre-line normal-case leading-tight">
+  <p class="grow whitespace-pre-line text-2xl normal-case leading-tight">
     {{ $t(`post_${post?.post}_desc`) }}
   </p>
   <div class="relative mt-2 w-full max-w-md">

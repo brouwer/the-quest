@@ -19,7 +19,7 @@
   "pleaseWait": "Please wait...",
   "pleaseWaitPost": "You must wait until the post is open before entering the code.",
   "scanCode": "Scan a QR code",
-  "gameOver": "Go to the Multi hall to see the last post of the evening.",
+  "gameOver": "Go to the Multi hall to see the last post of the evening. We start at 23:00.",
   "gotoStart": "Go to first post",
   "timeBetween": "Time until next post",
   "timeLeft": "Remaining time at post",
@@ -47,9 +47,9 @@
   "post_8_desc": "Three verses provide the right code",
   "post_9_desc": "",
   "post_10_desc": "",
-  "post_1_location": "Road in Hagebyen",
+  "post_1_location": "Hagebyveien",
   "post_2_location": "Festival plaza north",
-  "post_3_location": "Between hotel 2 and 4",
+  "post_3_location": "In front of building 2",
   "post_4_location": "Banquet hall",
   "post_5_location": "Plenary hall (via conference center north)",
   "post_6_location": "Mocca Coffeebar",
@@ -209,7 +209,7 @@
   "post_9": "Illuminance",
   "post_10": "Grow",
   "post_1_coords": "59.2289969, 10.3671180",
-  "post_2_coords": "59.2286297, 10.3642420",
+  "post_2_coords": "59.2284580, 10.3642404",
   "post_3_coords": "59.2309084, 10.3624587",
   "post_4_coords": "59.2290240, 10.3643678",
   "post_5_coords": "59.2283019, 10.3651543",
@@ -217,5 +217,5 @@
   "post_7_coords": "59.2280700, 10.3646062",
   "post_8_coords": "59.2274277, 10.3643852",
   "post_9_coords": "59.2281425, 10.3640483",
-  "post_10_coords": "59.2296484, 10.3628684"
+  "post_10_coords": "59.2293635, 10.3633050"
 }

@@ -3,7 +3,8 @@
     <div class="flex grow flex-col items-center justify-center p-3 pb-16">
       <WrongPostView
         v-if="
-          gameStatus == GameStatus.Game && post?.post != postNumber?.toString()
+          gameStatus != GameStatus.Inactive &&
+          post?.post != postNumber?.toString()
         "
       />
       <WaitPostView
@@ -37,8 +38,9 @@
       />
       <NextPostView
         v-if="
-          gameStatus == GameStatus.Between ||
-          (gameStatus == GameStatus.Game && showNext)
+          (gameStatus == GameStatus.Between ||
+            (gameStatus == GameStatus.Game && showNext)) &&
+          post == null
         "
         :extra="showNext"
       />
