@@ -9,9 +9,9 @@
   <QuestButton v-if="elapsedCurrentCycle > 10" @click="goBonus" class="mb-2">{{
     $t("goBonus")
   }}</QuestButton>
-  <QuestButton @click="$emit('nextPost')" class="!bg-primary-300">{{
+  <!-- <QuestButton @click="$emit('nextPost')" class="!bg-primary-300">{{
     $t("post_next")
-  }}</QuestButton>
+  }}</QuestButton> -->
 </template>
 
 <script setup lang="ts">
