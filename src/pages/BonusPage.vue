@@ -119,7 +119,7 @@ const randomBonus = (avoid?: number) => {
 
 watchEffect(() => {
   if (game.value && gameStatus.value != GameStatus.Game) {
-    //router.push("/")
+    router.push("/")
   }
 
   if (team.value && game.value && bonusQuestion.value == 0) {
