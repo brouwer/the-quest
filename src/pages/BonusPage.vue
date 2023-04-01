@@ -49,7 +49,7 @@
       </button>
       <button
         :disabled="disabled"
-        @click="unlock(3)"
+        @click="unlock(4)"
         class="mb-2 w-full rounded-lg border-4 border-primary-500 p-2 text-base normal-case active:bg-primary-300 active:text-white disabled:bg-gray-300 disabled:text-black"
       >
         {{ $t(`bonus_${bonusQuestion}_option_4`) }}
