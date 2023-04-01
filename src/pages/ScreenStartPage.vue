@@ -7,7 +7,7 @@
         Teams with this color can leave the hall
       </h1>
       <div
-        class="m-24 aspect-square w-2/5 rounded-full border-2 border-white"
+        class="m-24 aspect-square w-2/6 rounded-full border-2 border-white"
         :class="teamClass(currentTeamToLeave)"
       ></div>
       <h1 class="mb-5 text-5xl font-black">{{ currentTeamToLeave }}</h1>
